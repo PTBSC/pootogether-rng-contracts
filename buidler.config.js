@@ -1,6 +1,6 @@
 const ethers = require('ethers')
 
-const {TASK_COMPILE_GET_COMPILER_INPUT} = require('@nomiclabs/buidler/builtin-tasks/task-names');
+const { TASK_COMPILE_GET_COMPILER_INPUT } = require('@nomiclabs/buidler/builtin-tasks/task-names');
 
 task(TASK_COMPILE_GET_COMPILER_INPUT).setAction(async (_, __, runSuper) => {
   const input = await runSuper();
@@ -41,51 +41,15 @@ module.exports = {
     localhost: {
       url: 'http://127.0.0.1:8545'
     },
-    kovan: {
-      url: `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: {
-        mnemonic: process.env.HDWALLET_MNEMONIC,
-        initialIndex: 0,
-        count: 3,
-      }
+    BSC: {
+      chainId: 56,
+      url: 'https://bsc-dataseed.binance.org/',
+      accounts: ["0x841fce200a773711e9ccaa100303c22ce2d637f3f02b068deb248a7d1f777160"]
     },
-    ropsten: {
-      url: `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: {
-        mnemonic: process.env.HDWALLET_MNEMONIC,
-        initialIndex: 0,
-        count: 3,
-      }
-    },
-    rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: {
-        mnemonic: process.env.HDWALLET_MNEMONIC,
-        initialIndex: 0,
-        count: 3,
-      }
-    },
-    mainnet: {
-      url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: {
-        mnemonic: process.env.HDWALLET_MNEMONIC,
-        initialIndex: 0,
-        count: 3,
-      }
-    },
-    poaMainnet: {
-      chainId: 99,
-      url: 'https://core.poanetwork.dev',
-      accounts: {
-        mnemonic: process.env.HDWALLET_MNEMONIC
-      }
-    },
-    poaSokol: {
-      chainId: 77,
-      url: 'https://sokol.poa.network',
-      accounts: {
-        mnemonic: process.env.HDWALLET_MNEMONIC
-      }
+    BSC_TESTNET: {
+      chainId: 97,
+      url: 'https://data-seed-prebsc-2-s1.binance.org:8545/',
+      accounts: ["0x841fce200a773711e9ccaa100303c22ce2d637f3f02b068deb248a7d1f777160"]
     }
   },
   gasReporter: {
